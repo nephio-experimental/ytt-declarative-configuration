@@ -1,0 +1,11 @@
+kind: YttTemplate
+apiVersion: apps/v1
+metadata:
+  name: amf-template-day0
+template:
+  #@ day0 = data.values.day0
+  values.yaml:
+    free5gc-nrf-nnrf-service:
+      pod-instances: #@ day0.instances*2
+    free5gc-amf-n2-service:
+      memory: #@ day0.instances*15

@@ -1,0 +1,26 @@
+kind: YttTemplate
+apiVersion: apps/v1
+metadata:
+  name: cns-template-upf
+template:
+  #@ load("@ytt:math","math") 
+  #@ day0 = data.values.day0
+  #@ day1 = data.values.day1
+  day0:
+    #@ if day0.resilience.high_availability:
+    #@   min_instances = 2
+    #@ else:
+    #@   min_instances = 1
+    #@ end
+    user_instances: #@ max ( math.floor( (day0.capacity.connected_users-1) / 1000) + 1, min_instances)
+    cell_instances: #@ max ( math.floor( (day0.capacity.cells-1) / 256) + 1, min_instances)
+  day1:
+    free5gcupffunction:
+      nrcellcu:
+      #@ for cell in day1.cells:
+      - id: #@ cell.id
+        name: #@ cell.name
+        pci: #@ cell.pci
+        tac: #@ day1.common.tac
+        #! nb
+      #@ end

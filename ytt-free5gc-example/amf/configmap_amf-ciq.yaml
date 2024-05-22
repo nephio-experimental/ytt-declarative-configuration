@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: amf/ConfigMap
+metadata:
+  name: amf-ciq
+values:
+  day0:
+    instances: 16
+  day1:
+    coreamffunction:
+      servedGuamiList:
+      - id: 100
+        name: ""
+        pci: 33
+        tac: 38
+      - id: 102
+        name: ""
+        pci: 38
+        tac: 38

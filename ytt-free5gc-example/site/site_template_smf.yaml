@@ -1,0 +1,9 @@
+kind: YttTemplate
+apiVersion: apps/v1
+metadata:
+  name: cns-template-smf
+template:
+  #@ load("@ytt:math","math") 
+  #@ day0 = data.values.day0
+  day0:
+    instances: #@ math.floor(day0.capacity.connected_users * day0.capacity.user_throughput / 1000.0)

@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: YttFnConfig
+metadata:
+  name: amf-fnconfig-day0
+schemas:
+  - kind: YttTemplate
+    name: amf-schema
+ciqs:
+  - kind: amf/ConfigMap
+    name: amf-ciq
+template:
+  kind: YttTemplate
+  name: amf-template-day0
+output:
+  kind: amf/ConfigMap
+  name: amf-values-day0

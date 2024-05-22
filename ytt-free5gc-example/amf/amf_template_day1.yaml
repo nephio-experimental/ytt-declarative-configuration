@@ -1,0 +1,17 @@
+kind: YttTemplate
+apiVersion: apps/v1
+metadata:
+  name: amf-template-day1
+template:
+  #@ day1 = data.values.day1
+  data:
+    coreamffunction:
+      servedGuamiList:
+        #@ for cell in day1.coreamffunction.servedGuamiList:
+        - sectorId: #@ cell.sectorId
+          id: #@ cell.id
+          name: #@ cell.name
+          pci: #@ cell.pci
+          tac: #@ cell.tac
+          #@ end
+#@ end

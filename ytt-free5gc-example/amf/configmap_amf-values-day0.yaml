@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: amf/ConfigMap
+metadata:
+  name: amf-values-day0
+values:
+  values.yaml:
+    free5gc-amf-n2-service:
+      memory: 240
+    free5gc-nrf-nnrf-service:
+      pod-instances: 32

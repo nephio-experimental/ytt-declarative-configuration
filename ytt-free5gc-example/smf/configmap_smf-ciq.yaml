@@ -1,0 +1,5 @@
+apiVersion: apps/v1
+kind: smf/ConfigMap
+metadata:
+  name: smf-ciq
+values: {}

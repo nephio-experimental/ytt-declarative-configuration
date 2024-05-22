@@ -1,0 +1,35 @@
+kind: YttTemplate
+apiVersion: apps/v1
+metadata:
+  name: site-ciq
+#! -----------------------------------------
+#! Describes a site consisting of a parts of a core
+#!
+#! The free5gc consists of amf + smf + upf
+#! -----------------------------------------
+values:
+  #! ----------------------------------------
+  #! Describes initial software configuration
+  #! ----------------------------------------
+  day0:
+    capacity:
+      connected_users: 3000
+      cells: 2048
+      user_throughput: 2.5
+    resilience:
+      high_availability: true
+  #! -------------------------------------
+  #! Describes initial day 1 configuration
+  #! -------------------------------------
+  day1:
+    common:
+      mcc: 23
+      mnc: 11
+      tac: 38
+    cells:
+      - id: 100
+        sectorId: 0
+        pci: 33
+      - id: 102
+        sectorId: 1
+        pci: 38

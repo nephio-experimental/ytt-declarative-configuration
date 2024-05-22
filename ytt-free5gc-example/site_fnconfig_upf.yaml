@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: YttFnConfig
+metadata:
+  name: site-fnconfig-upf
+schemas:
+  - kind: YttTemplate
+    name: site-schema
+ciqs:
+  - kind: YttTemplate
+    name: site-ciq
+template:
+  kind: YttTemplate
+  name: site-template-upf
+output:
+  kind: upf/ConfigMap
+  name: upf-ciq

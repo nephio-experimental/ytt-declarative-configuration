@@ -1,0 +1,16 @@
+kind: YttTemplate
+apiVersion: apps/v1
+metadata:
+  name: amf-schema
+schema:
+  day0:
+    instances: 2
+  day1:
+    coreamffunction:
+      #@schema/validation min_len=1,max_len=6
+      servedGuamiList:
+        - id: 0
+          sectorId: 0
+          name: ""
+          pci: 0
+          tac: 0

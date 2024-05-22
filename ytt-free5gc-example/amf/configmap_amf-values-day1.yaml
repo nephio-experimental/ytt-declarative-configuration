@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: amf/ConfigMap
+metadata:
+  name: amf-values-day1
+values:
+  data:
+    coreamffunction:
+      servedGuamiList:
+      - id: 100
+        name: ""
+        pci: 33
+        sectorId: 0
+        tac: 38
+      - id: 102
+        name: ""
+        pci: 38
+        sectorId: 0
+        tac: 38
