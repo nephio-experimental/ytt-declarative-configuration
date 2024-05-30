@@ -7,14 +7,14 @@ template:
   #@ day0 = data.values.day0
   #@ day1 = data.values.day1
   day0:
-    instances: #@ math.floor( (day0.capacity.cells-1) / 128) + 1
+    instances: #@ math.floor( (day0.capacity.maxSessions-1) / 128) + 1
   day1:
     coreamffunction:
       servedGuamiList:
-        #@ for cell in day1.cells:
-        - id: #@ cell.id
-          name: #@ cell.name
-          pci: #@ cell.pci
+        #@ for networkFunction in day1.maxSessions:
+        - id: #@ networkFunction.id
+          name: #@ networkFunction.name
+          pci: #@ networkFunction.pci
           tac: #@ day1.common.tac
           #! nb
       #@ end

@@ -18,4 +18,3 @@ pipeline:
       configPath: amf_fnconfig_day0.yaml
     - image: localhost:5000/ytt-executor/v.0.1
       configPath: amf_fnconfig_day1.yaml
-

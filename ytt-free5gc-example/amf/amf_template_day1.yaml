@@ -7,11 +7,11 @@ template:
   data:
     coreamffunction:
       servedGuamiList:
-        #@ for cell in day1.coreamffunction.servedGuamiList:
-        - sectorId: #@ cell.sectorId
-          id: #@ cell.id
-          name: #@ cell.name
-          pci: #@ cell.pci
-          tac: #@ cell.tac
+        #@ for networkFunction in day1.coreamffunction.servedGuamiList:
+        - sectorId: #@ networkFunction.sectorId
+          id: #@ networkFunction.id
+          name: #@ networkFunction.name
+          pci: #@ networkFunction.pci
+          tac: #@ networkFunction.tac
           #@ end
 #@ end
