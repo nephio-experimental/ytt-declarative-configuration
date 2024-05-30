@@ -13,9 +13,9 @@ values:
   #! ----------------------------------------
   day0:
     capacity:
-      connected_users: 3000
-      cells: 2048
-      user_throughput: 2.5
+      maxNFConnection: 50
+      maxSessions: 2048
+      subscribedUe: 2.5
     resilience:
       high_availability: true
   #! -------------------------------------
@@ -26,7 +26,7 @@ values:
       mcc: 23
       mnc: 11
       tac: 38
-    cells:
+    maxSessions:
       - id: 100
         sectorId: 0
         pci: 33

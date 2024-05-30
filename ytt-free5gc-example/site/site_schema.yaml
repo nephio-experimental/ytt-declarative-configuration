@@ -6,20 +6,20 @@ schema:
   day0:
     capacity:
       #!
-      #@schema/desc "amf capacity in number of connected users"
-      #@schema/validation min=100,max=10000
+      #@schema/desc "amf capacity in number of connected NF"
+      #@schema/validation min=0,max=10000
       #!
-      connected_users: -1
-      #!
-      #@schema/validation min=1,max=2048
-      #@schema/desc "amf capacity in number of cells"
-      #!
-      cells: -1
+      maxNFConnection: -1
       #!
       #@schema/validation min=1,max=2048
-      #@schema/desc "amf capacity in number of average user throughput in MB/s"
+      #@schema/desc "amf capacity in number of sesions"
       #!
-      user_throughput: -1.0
+      maxSessions: -1
+      #!
+      #@schema/validation min=1,max=2048
+      #@schema/desc "amf capacity in number of average subscribedUe throughput in MB/s"
+      #!
+      subscribedUe: -1.0
     resilience:
       #!
       #@schema/desc "high availability requires amf to be redundant, i.e. instances > 1"
@@ -30,7 +30,7 @@ schema:
       tac: 0
       mcc: 25
       mnc: 21
-    cells:
+    maxSessions:
       - id: 0
         sectorId: 0
         pci: 0
