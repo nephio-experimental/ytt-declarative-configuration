@@ -22,7 +22,7 @@ It is required to have docker and kpt installed, in order to run the examples pr
 Run:
 
 ```bash
-docker build . -f ytt_render/docker/Dockerfile -t localhost:5000/ytt-executor/v.0.1
+docker build . -t localhost:5000/ytt-executor/v0.0.1
 
 ```
 

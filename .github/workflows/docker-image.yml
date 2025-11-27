@@ -1,0 +1,42 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main", "dockerfile" ]
+  pull_request:
+    branches: [ "main", "dockerfile" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        run: |
+          OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE_NAME=ghcr.io/${OWNER_LC}/ytt-executor
+          TAG=$(date +%s)
+
+          echo "Building $IMAGE_NAME:$TAG"
+          docker build ./ytt-executor \
+            --file ./ytt-executor/Dockerfile \
+            --tag $IMAGE_NAME:$TAG \
+            --tag $IMAGE_NAME:latest
+
+          echo "Pushing $IMAGE_NAME..."
+          docker push $IMAGE_NAME --all-tags
